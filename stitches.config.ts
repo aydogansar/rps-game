@@ -12,6 +12,8 @@ export const colors = {
   paperGradient: "linear-gradient(hsl(230, 89%, 62%) , hsl(230, 89%, 65%))",
   rockGradient: "linear-gradient(hsl(349, 71%, 52%) , hsl(349, 70%, 56%))",
   cyan: "linear-gradient(hsl(189, 59%, 53%) , hsl(189, 58%, 57%))",
+  grayGradient:
+    "radial-gradient(circle, rgba(255,255,255,1) 0%, rgba(221,221,221,1) 0%, rgba(221,221,221,1) 100%)",
 };
 
 export const media = {
@@ -97,4 +99,17 @@ export const { styled, getCssText, theme } = createStitches({
   },
 
   media,
+  utils: {
+    flexCenter: (direction: string) => ({
+      display: "flex",
+      justifyContent: "center",
+      alignItems: "center",
+      flexDirection: direction || "row",
+    }),
+    flexBetween: (align: string) => ({
+      display: "flex",
+      justifyContent: "space-between",
+      alignItems: align || "center",
+    }),
+  },
 });

@@ -1,10 +1,11 @@
-html {
-  width:100vw;
-  height:100vh;
+html{
+  width:100%;
+  height:100%;
 }
 
 body {
-  min-height: 100vh;
+  width:100%;
+  height:100%;
 }
 
 *::before,
@@ -22,5 +23,5 @@ body {
   line-height: var(--lineHeights-base);
   color: var(--colors-white, #fff);
   font-variant-numeric: lining-nums;
-  background: radial-gradient(hsl(214, 47%, 23%) , hsl(237, 49%, 15%));
+  background: radial-gradient(circle at top,hsl(214, 47%, 23%) , hsl(237, 49%, 15%));
 }
