@@ -1,0 +1,26 @@
+html {
+  width:100vw;
+  height:100vh;
+}
+
+body {
+  min-height: 100vh;
+}
+
+*::before,
+*,
+*::after {
+  margin: 0;
+  padding: 0;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+body {
+  font-family: 'Barlow Semi Condensed', sans-serif;;
+  font-size: var(--fontSizes-base);
+  line-height: var(--lineHeights-base);
+  color: var(--colors-white, #fff);
+  font-variant-numeric: lining-nums;
+  background: radial-gradient(hsl(214, 47%, 23%) , hsl(237, 49%, 15%));
+}
