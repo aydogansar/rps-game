@@ -1,10 +1,13 @@
 import { styled } from "stitches.config";
+import useStore from "store";
 
 const Score = () => {
+  const score = useStore((state) => state.score);
+
   return (
     <Wrapper>
       <span>SCORE</span>
-      <span>12</span>
+      <span>{score}</span>
     </Wrapper>
   );
 };
