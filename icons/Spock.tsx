@@ -10,5 +10,3 @@ const Spock = ({ color = "currentColor", ...props }: IconProps) => (
 );
 
 export default Spock;
-
-//#3B4262
