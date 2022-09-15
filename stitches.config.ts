@@ -11,9 +11,11 @@ export const colors = {
   scissorsGradient: "linear-gradient(hsl(39, 89%, 49%) , hsl(40, 84%, 53%))",
   paperGradient: "linear-gradient(hsl(230, 89%, 62%) , hsl(230, 89%, 65%))",
   rockGradient: "linear-gradient(hsl(349, 71%, 52%) , hsl(349, 70%, 56%))",
+  lizardGradient: "linear-gradient(hsl(261, 73%, 60%) ,hsl(261, 72%, 63%))",
   cyan: "linear-gradient(hsl(189, 59%, 53%) , hsl(189, 58%, 57%))",
   grayGradient:
     "radial-gradient(circle, rgba(255,255,255,1) 0%, rgba(221,221,221,1) 0%, rgba(221,221,221,1) 100%)",
+  dark: "#3B4262",
 };
 
 export const media = {
