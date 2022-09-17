@@ -1,5 +1,10 @@
 import type { NextPage } from "next";
-import { Container, Header, PlayGround } from "components";
+import dynamic from "next/dynamic";
+import { Container, Header } from "components";
+
+const PlayGround = dynamic(() => import("components/PlayGround"), {
+  ssr: false,
+});
 
 const Home: NextPage = () => {
   return (
