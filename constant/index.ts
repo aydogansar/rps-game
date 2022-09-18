@@ -1,1 +1,1 @@
-export { positions, colors } from "./choices"
+export { colors } from "./choices";

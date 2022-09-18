@@ -16,7 +16,7 @@ export default Score;
 const Wrapper = styled("div", {
   flexCenter: "column", //stitches custom util
 
-  width: "170px",
+  width: "120px",
   height: "100%",
   background: "$grayGradient",
   borderRadius: "$md",
@@ -24,14 +24,27 @@ const Wrapper = styled("div", {
 
   "& > span:first-of-type": {
     color: "$scoreText",
-    marginBottom: "$5",
-    marginTop: "-$5",
+    marginBottom: "$3",
+    marginTop: "-$3",
     letterSpacing: "2px",
+
+    "@sm": {
+      marginBottom: "$5",
+      marginTop: "-$5",
+    },
   },
 
   "& > span:last-of-type": {
-    fontSize: "64px",
+    fontSize: "48px",
     color: "$darkText",
     fontWeight: "$bold",
+
+    "@sm": {
+      fontSize: "64px",
+    },
+  },
+
+  "@sm": {
+    width: "170px",
   },
 });

@@ -2,26 +2,22 @@ import { ReactNode } from "react";
 import { styled } from "stitches.config";
 
 interface Props {
-    children: ReactNode
+  children: ReactNode;
 }
 
 const Container = ({ children }: Props) => {
-    return (
-        <Wrapper>
-            {children}
-        </Wrapper>
-    )
-}
+  return <Wrapper>{children}</Wrapper>;
+};
 export default Container;
 
 const Wrapper = styled("div", {
-    width: "100%",
-    maxWidth: "375px",
-    margin: "0 auto",
+  width: "100%",
+  maxWidth: "375px",
+  margin: "0 auto",
+  flexCenter: "column",
 
-    "@sm": {
-        maxWidth: "1366px",
-        padding: "0 $18",
-    }
-
-})
+  "@sm": {
+    maxWidth: "1366px",
+    padding: "0 $18",
+  },
+});
