@@ -87,7 +87,29 @@ const Column = styled("div", {
     },
   },
 
+  "&:first-of-type": {
+    marginRight: "$4",
+  },
+  "&:last-of-type": {
+    marginLeft: "$4",
+  },
+
   "@md": {
     height: "300px",
+
+    "&:first-of-type": {
+      marginRight: "$12",
+    },
+    "&:last-of-type": {
+      marginLeft: "$12",
+    },
+  },
+  "@lg": {
+    "&:first-of-type": {
+      marginRight: "unset",
+    },
+    "&:last-of-type": {
+      marginLeft: "unset",
+    },
   },
 });
