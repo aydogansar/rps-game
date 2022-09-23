@@ -9,12 +9,13 @@ interface Store {
   increaseScore: () => void;
   decreaseScore: () => void;
 
-  result: null | string;
+  result: null | "win" | "lose" | "draw";
   computerChoice: Choice;
   choice: Choice;
   setChoice: (userChoice: Choice) => void;
   setComputerChoice: (computerChoice: Choice) => void;
   handlePlay: (userChoice: Choice) => void;
+  playAgain: () => void;
 }
 
 const useStore = create<Store>()(
@@ -53,6 +54,13 @@ const useStore = create<Store>()(
               }
             }, 1000);
           }
+        },
+        playAgain: () => {
+          set({ choice: null, computerChoice: null });
+
+          setTimeout(() => {
+            set({ result: null });
+          }, 1000);
         },
       }),
       {

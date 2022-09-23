@@ -1,10 +1,12 @@
 import { styled } from "stitches.config";
 import ChoiceArea from "./ChoiceArea";
+import Result from "./Result";
 
 const PlayGround = () => {
   return (
     <Wrapper>
       <ChoiceArea />
+      <Result />
     </Wrapper>
   );
 };

@@ -25,6 +25,7 @@ const Choice = ({ type, isSelected = false }: Props) => {
       }}
       {...(!isSelected && { onClick: handleChoice })}
       selected={isSelected}
+      empty={type === null}
     >
       <GrayArea>
         <CustomComponent />
@@ -79,6 +80,11 @@ const Wrapper = styled("div", {
       true: {
         transform: "scale(1.4)",
         cursor: "default",
+      },
+    },
+    empty: {
+      true: {
+        background: "$black20",
       },
     },
   },

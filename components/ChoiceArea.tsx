@@ -1,9 +1,25 @@
-import { AnimatePresence, motion, Variants } from "framer-motion";
-import shallow from "zustand/shallow";
+import { motion, Variants } from "framer-motion";
 import { styled } from "stitches.config";
 import { Choices } from "models/Choices";
 import useStore from "store";
 import Choice from "./Choice";
+
+const variants: Variants = {
+  visible: {
+    opacity: 1,
+    display: "block",
+    transition: {
+      display: { duration: 0.5, delay: 0.5 },
+    },
+  },
+  hidden: {
+    opacity: 0,
+    display: "none",
+    transition: {
+      display: { duration: 0.5, delay: 0.5 },
+    },
+  },
+};
 
 const ChoiceArea = () => {
   const choice = useStore((state) => state.choice);
@@ -11,26 +27,33 @@ const ChoiceArea = () => {
   const hasChoice = typeof choice === "number";
 
   return (
-    <Wrapper hasChoice={hasChoice}>
-      <img src="/bg-pentagon.svg" width={500} height={476} />
-      <Row firstRow>
-        <Choice type={Choices.Scissors} />
-      </Row>
-      <Row middleRow>
-        <Choice type={Choices.Spock} />
-        <Choice type={Choices.Paper} />
-      </Row>
-      <Row lastRow>
-        <Choice type={Choices.Lizard} />
-        <Choice type={Choices.Rock} />
-      </Row>
-    </Wrapper>
+    <motion.div
+      initial={hasChoice ? "hidden" : "visible"}
+      variants={variants}
+      animate={hasChoice ? "hidden" : "visible"}
+    >
+      <Wrapper hasChoice={hasChoice}>
+        <img src="/bg-pentagon.svg" width={500} height={476} />
+        <Row firstRow>
+          <Choice type={Choices.Scissors} />
+        </Row>
+        <Row middleRow>
+          <Choice type={Choices.Spock} />
+          <Choice type={Choices.Paper} />
+        </Row>
+        <Row lastRow>
+          <Choice type={Choices.Lizard} />
+          <Choice type={Choices.Rock} />
+        </Row>
+      </Wrapper>
+    </motion.div>
   );
 };
 export default ChoiceArea;
 
 const Wrapper = styled("div", {
   width: "100%",
+  height: "100%",
   position: "relative",
   display: "flex",
   flexDirection: "column",
@@ -74,6 +97,7 @@ const Row = styled("div", {
       true: {
         justifyContent: "center",
         marginTop: "-15px",
+        zIndex: 1, //click event issue because of middleRow height
 
         "@sm": {
           marginTop: "-35px",
@@ -82,7 +106,7 @@ const Row = styled("div", {
     },
     middleRow: {
       true: {
-        marginTop: "10px",
+        marginTop: "-10px",
 
         "& > div": {
           margin: "0 -10px",
@@ -93,14 +117,14 @@ const Row = styled("div", {
             margin: "0 -10px",
           },
 
-          marginTop: "80px",
+          marginTop: "50px",
         },
         "@md": {
           "& > div": {
             margin: "0 -20px",
           },
 
-          marginTop: "20px",
+          marginTop: "z0px",
         },
         "@lg": {
           "& > div": {
@@ -113,7 +137,7 @@ const Row = styled("div", {
     },
     lastRow: {
       true: {
-        marginTop: "55px",
+        marginTop: "35px",
 
         "& > div": {
           margin: "0 15px",
@@ -124,14 +148,14 @@ const Row = styled("div", {
             margin: "0  60px",
           },
 
-          marginTop: "180px",
+          marginTop: "160px",
         },
         "@md": {
           "& > div": {
             margin: "0 60px",
           },
 
-          marginTop: "180px",
+          marginTop: "140px",
         },
         "@lg": {
           "& > div": {

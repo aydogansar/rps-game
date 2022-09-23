@@ -16,6 +16,8 @@ export const colors = {
   grayGradient:
     "radial-gradient(circle, rgba(255,255,255,1) 0%, rgba(221,221,221,1) 0%, rgba(221,221,221,1) 100%)",
   dark: "#3B4262",
+  black20: "rgba(0,0,0,0.2)",
+  gray: "#ddd",
 };
 
 export const media = {
