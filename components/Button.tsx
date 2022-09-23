@@ -13,6 +13,20 @@ const Button = styled("button", {
   "&:hover": {
     background: "$white",
   },
+
+  variants: {
+    outline: {
+      true: {
+        background: "transparent",
+        border: "1px solid $white",
+        color: "$white",
+
+        "&:hover": {
+          background: "unset",
+        },
+      },
+    },
+  },
 });
 
 export default Button;
