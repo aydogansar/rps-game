@@ -34,7 +34,7 @@ export const media = {
   "2xl": "(min-width: 1536px)",
 };
 
-export const { styled, getCssText, theme } = createStitches({
+export const { styled, getCssText, theme, keyframes } = createStitches({
   theme: {
     fonts: {
       raleway: "Raleway,sans-serif",

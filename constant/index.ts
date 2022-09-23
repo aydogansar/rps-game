@@ -3,4 +3,5 @@ export {
   modalBodyVariants,
   modalWrapperVariants,
   choiceAreaVariants,
+  pulseAnimation,
 } from "./animations";

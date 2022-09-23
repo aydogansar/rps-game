@@ -27,8 +27,8 @@ const variants: Variants = {
 };
 
 const Result = () => {
-  const [choice, computerChoice] = useStore(
-    (state) => [state.choice, state.computerChoice],
+  const [choice, computerChoice, result] = useStore(
+    (state) => [state.choice, state.computerChoice, state.result],
     shallow
   );
 
@@ -42,7 +42,9 @@ const Result = () => {
       <Column>
         <h2>You Picked</h2>
 
-        {hasChoice && <Choice type={choice} isSelected />}
+        {hasChoice && (
+          <Choice type={choice} isSelected winner={result === "win"} />
+        )}
       </Column>
 
       <ResultDisplay />
@@ -51,7 +53,7 @@ const Result = () => {
         <h2>The House Picked</h2>
 
         {hasComputerChoice ? (
-          <Choice type={computerChoice} isSelected />
+          <Choice type={computerChoice} isSelected winner={result === "lose"} />
         ) : (
           <EmptyChoice />
         )}

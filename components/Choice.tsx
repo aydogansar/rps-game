@@ -1,17 +1,17 @@
 import { styled } from "stitches.config";
-import { Choices } from "models/Choices";
 import { Rock, Paper, Lizard, Scissors, Spock } from "icons";
-import { colors } from "constant";
+import { colors, pulseAnimation } from "constant";
 import useStore from "store";
 
 interface Props {
   type: number;
   isSelected?: boolean;
+  winner?: boolean;
 }
 
 const choices = [Scissors, Spock, Lizard, Rock, Paper];
 
-const Choice = ({ type, isSelected = false }: Props) => {
+const Choice = ({ type, isSelected = false, winner }: Props) => {
   const CustomComponent = choices[type];
 
   const handlePlay = useStore((state) => state.handlePlay);
@@ -26,6 +26,7 @@ const Choice = ({ type, isSelected = false }: Props) => {
       {...(!isSelected && { onClick: handleChoice })}
       selected={isSelected}
       empty={type === null}
+      winner={winner}
     >
       <GrayArea>
         <CustomComponent />
@@ -85,6 +86,26 @@ const Wrapper = styled("div", {
     empty: {
       true: {
         background: "$black20",
+      },
+    },
+    winner: {
+      true: {
+        "&:before": {
+          content: "",
+          width: "100%",
+          height: "100%",
+          position: "absolute",
+          borderRadius: "$circle",
+          animation: `${pulseAnimation(1.5)} 1000ms infinite`,
+        },
+        "&:after": {
+          content: "",
+          width: "100%",
+          height: "100%",
+          position: "absolute",
+          borderRadius: "$circle",
+          animation: `${pulseAnimation(2)} 1000ms infinite`,
+        },
       },
     },
   },
