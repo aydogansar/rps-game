@@ -1,2 +1,6 @@
 export { colors } from "./choices";
-export { modalBodyVariants, modalWrapperVariants } from "./animations";
+export {
+  modalBodyVariants,
+  modalWrapperVariants,
+  choiceAreaVariants,
+} from "./animations";
