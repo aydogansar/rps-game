@@ -1,25 +1,9 @@
-import { motion, Variants } from "framer-motion";
+import { motion } from "framer-motion";
 import { styled } from "stitches.config";
 import { Choices } from "models/Choices";
 import useStore from "store";
+import { choiceAreaVariants } from "constant";
 import Choice from "./Choice";
-
-const variants: Variants = {
-  visible: {
-    opacity: 1,
-    display: "block",
-    transition: {
-      display: { duration: 0.5, delay: 0.5 },
-    },
-  },
-  hidden: {
-    opacity: 0,
-    display: "none",
-    transition: {
-      display: { duration: 0.5, delay: 0.5 },
-    },
-  },
-};
 
 const ChoiceArea = () => {
   const choice = useStore((state) => state.choice);
@@ -29,7 +13,7 @@ const ChoiceArea = () => {
   return (
     <motion.div
       initial={hasChoice ? "hidden" : "visible"}
-      variants={variants}
+      variants={choiceAreaVariants}
       animate={hasChoice ? "hidden" : "visible"}
     >
       <Wrapper hasChoice={hasChoice}>
