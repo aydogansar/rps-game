@@ -10,6 +10,7 @@ interface Store {
   decreaseScore: () => void;
 
   result: null | "win" | "lose" | "draw";
+  win: null | "win" | "lose" | "draw";
   computerChoice: Choice;
   choice: Choice;
   setChoice: (userChoice: Choice) => void;
@@ -27,6 +28,7 @@ const useStore = create<Store>()(
         decreaseScore: () => set((state) => ({ score: state.score - 1 })),
 
         result: null,
+        win: null,
 
         choice: null,
         setChoice: async (userChoice: Choice) => set({ choice: userChoice }),
@@ -49,6 +51,7 @@ const useStore = create<Store>()(
               if (res) {
                 set((state) => ({
                   ...res,
+                  win: res.result,
                   score: calculateScore(res.result, state.score),
                 }));
               }
@@ -56,10 +59,10 @@ const useStore = create<Store>()(
           }
         },
         playAgain: () => {
-          set({ choice: null, computerChoice: null });
+          set({ result: null });
 
           setTimeout(() => {
-            set({ result: null });
+            set({ choice: null, computerChoice: null, win: null });
           }, 1000);
         },
       }),

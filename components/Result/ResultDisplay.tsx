@@ -30,8 +30,8 @@ const results = {
 };
 
 const ResultDisplay = () => {
-  const [result, playAgain] = useStore(
-    (state) => [state.result, state.playAgain],
+  const [result, win, playAgain] = useStore(
+    (state) => [state.result, state.win, state.playAgain],
     shallow
   );
 
@@ -39,7 +39,7 @@ const ResultDisplay = () => {
 
   return (
     <Wrapper initial={animate} variants={resultVariants} animate={animate}>
-      <h2>{result && results[result]}</h2>
+      <h2>{win && results[win]}</h2>
       <Button onClick={playAgain}>PLAY AGAIN</Button>
     </Wrapper>
   );
@@ -51,7 +51,7 @@ const Wrapper = styled(motion.div, {
   height: "130px",
   marginTop: "$24",
   position: "absolute",
-  bottom: "150px",
+  bottom: "100px",
 
   h2: {
     fontSize: "56px",
@@ -61,7 +61,7 @@ const Wrapper = styled(motion.div, {
     marginBottom: "$8",
   },
 
-  "@md": {
+  "@lg": {
     position: "static",
   },
 });
